@@ -165,9 +165,7 @@ func Update(client *gophercloud.ServiceClient, projectID string, opts UpdateOpts
 		return res
 	}
 
-	_, res.Err = client.Patch(updateURL(client, projectID), reqBody, &res.Body, &gophercloud.RequestOpts{
-		OkCodes: []int{200},
-	})
+	_, res.Err = client.Patch(updateURL(client, projectID), reqBody, &res.Body, nil)
 	return res
 }
 
